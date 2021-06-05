@@ -1,5 +1,4 @@
-# testset_root = '/data0/donghyeon/ipnn/AIM2020VTSRC/test'   # put your testing input folder here
-testset_root = '/data0/jwwoo/ipnn/AIM2020VTSRC/test/test_15fps'   # put your testing input folder here
+testset_root = '/data0/donghyeon/ipnn/AIM2020VTSRC/test'   # put your testing input folder here
 test_size = (1280, 720)          # speficy the frame resolution (640, 360) 
 test_crop_size = (1280, 720)
 
@@ -14,6 +13,6 @@ model = 'AcSloMoS_scope_unet_residual_synthesis_edge_LSE'
 pwc_path = './utils/network-default.pytorch'
 
 
-store_path = 'outputs/running_test123'          # where to store the outputs
+store_path = 'outputs/uti-vfi-eqvi-vim2020'          # where to store the outputs
 checkpoint = 'checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt'
 
