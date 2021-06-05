@@ -13,6 +13,6 @@ model = 'AcSloMoS_scope_unet_residual_synthesis_edge_LSE'
 pwc_path = './utils/network-default.pytorch'
 
 
-store_path = 'outputs/uti-vfi-eqvi-vim2020'          # where to store the outputs
+store_path = 'outputs/running_test'          # where to store the outputs
 checkpoint = 'checkpoints/Stage123_scratch/Stage123_scratch_checkpoint.ckpt'
 

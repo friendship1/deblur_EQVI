@@ -134,3 +134,5 @@ CDVD-TSP/pretrain_models/CDVD_TSP_DVD_Paper.pt
 CDVD-TSP/pretrain_models/CDVD_TSP_DVD_Convergent.pt
 
 UTI-VFI/pretrain_models/*
+
+/configs/*
