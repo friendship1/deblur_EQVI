@@ -13,7 +13,7 @@ import torchvision.transforms as TF
 import torch.optim as optim
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.autograd import Variable
+from torch.autograd import Variable 
 
 import time
 import os
@@ -90,12 +90,14 @@ class LapLoss(nn.Module):
 
 # loss function
 def lossfn(outputs, I1, I2, IT):
-    It_warp, I1t, I2t, I1_warp, I2_warp, F12, F21, I1tf, I2tf, M, dFt1, dFt2, Ft1, Ft2, Ft1r, Ft2r, _, _, _, _ = outputs
+    It_warp, I1t, I2t, I1_warp, I2_warp, F12, F21, I1tf, I2tf, M, dFt1, dFt2, Ft1, Ft2, Ft1r, Ft2r, _, _, _, _, clean_out= outputs
     
     recnLoss = F.l1_loss(It_warp, IT)
 
     LapLoss_module = LapLoss()
     laplacian_loss = LapLoss_module(It_warp, IT)
+
+    midLoss = F.l1_loss(clean_out, IT) # need modify jwwoo
 
     loss = 5 * laplacian_loss + 10 * recnLoss
 
@@ -134,7 +136,7 @@ trainloader = torch.utils.data.DataLoader(trainset, batch_size=config.train_batc
 validationset = getattr(datas, config.validationset)(config.validationset_root, trans, config.validation_size, config.validation_crop_size)
 validationloader = torch.utils.data.DataLoader(validationset, batch_size=1, shuffle=False, num_workers=8)
 
-print(validationset)
+print(validationset) 
 
 
 # model
@@ -196,7 +198,7 @@ def validate():
                 IT = ITs[tt]
 
                 outputs = model(I0, I1, I2, I3, tt/4.0 + 0.25)
-                It_warp, I1t, I2t, I1_warp, I2_warp, F12, F21, I1tf, I2tf, M, dFt1, dFt2, Ft1, Ft2, Ft1r, Ft2r, _, _, _, _ = outputs
+                It_warp, I1t, I2t, I1_warp, I2_warp, F12, F21, I1tf, I2tf, M, dFt1, dFt2, Ft1, Ft2, Ft1r, Ft2r, _, _, _, _, clean_out = outputs
 
 
                 It_warps.append(It_warp)
