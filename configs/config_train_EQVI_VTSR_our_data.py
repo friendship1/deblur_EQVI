@@ -14,7 +14,7 @@ validation_crop_size = (1280, 720)
 train_batch_size = 12
 
 train_continue = True
-checkpoint = 'checkpoints/Reproduce001_EQVI_from_scratch_5Lap_10L1/AcSloMo183.ckpt'
+checkpoint = 'checkpoints/Reproduce001_EQVI_from_scratch_5Lap_10L1/AcSloMo200.ckpt'
 epochs = 200
 progress_iter = 439
 
